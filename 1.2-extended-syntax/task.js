@@ -16,8 +16,23 @@ function getResult(a,b,c){
 }
 
 function getAverageMark(marks){
-    // код для задачи №2 писать здесь
-    // return averageMark;
+    arrMarks = marks.split(/[\s,]/g);
+    let sumMarks = 0;
+    let averageMark = 0;
+
+    if (arrMarks.length > 5) {
+      console.log('Вы ввели больше 5-ти оценок');
+      arrMarks = arrMarks.slice(0,5);
+    }
+
+    for (let i = 0; i < arrMarks.length; i++) {
+      let mark = +(arrMarks[i]);
+      sumMarks = sumMarks + mark;
+    }
+
+    averageMark = sumMarks / arrMarks.length;
+
+    return averageMark;
 }
 
 function askDrink(name,dateOfBirthday){
