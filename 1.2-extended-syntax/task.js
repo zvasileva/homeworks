@@ -55,6 +55,25 @@ function getAverageMark(marks){
 }
 
 function askDrink(name,dateOfBirthday){
-    // код для задачи №3 писать здесь
-    // return result;
+    let now = new Date(); //Текущя дата
+    let nowDate = new Date(now.getFullYear(), now.getMonth(), now.getDate()); //Текущя дата без времени
+    let birthDate = new Date(dateOfBirthday); //Дата рождения
+    let birthCurrent = new Date(nowDate.getFullYear(), birthDate.getMonth(), birthDate.getDate()); //ДР в текущем году
+    let age; 
+    
+    if (nowDate < birthCurrent) {
+      age = nowDate.getFullYear() - birthDate.getFullYear() - 1;
+    } else {
+      age = nowDate.getFullYear() - birthDate.getFullYear();
+    }
+    
+    //console.log (`Возраст: ${age}`);
+    
+    if (age > 18) {
+      result = `Не желаете ли олд-фэшн, ${name}?`
+    } else {
+      result = `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`
+    }
+
+    return result;
 }
