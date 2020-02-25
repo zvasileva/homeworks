@@ -15,7 +15,7 @@ function getResult(a,b,c){
     return x;
 }
 
-function getAverageMark(marks){
+/*function getAverageMark(marks){
     arrMarks = marks.split(/[\s,]/g);
     let sumMarks = 0;
     let averageMark = 0;
@@ -31,6 +31,25 @@ function getAverageMark(marks){
     }
 
     averageMark = sumMarks / arrMarks.length;
+
+    return averageMark;
+}*/
+
+function getAverageMark(marks){
+    let sumMarks = 0;
+    let averageMark = 0;
+
+    if (marks.length > 5) {
+      console.log('Вы ввели больше 5-ти оценок');
+      marks = marks.slice(0,5);
+    }
+
+    for (let i = 0; i < marks.length; i++) {
+      let mark = +(marks[i]);
+      sumMarks = sumMarks + mark;
+    }
+
+    averageMark = sumMarks / marks.length;
 
     return averageMark;
 }
