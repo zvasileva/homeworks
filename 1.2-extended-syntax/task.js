@@ -60,6 +60,7 @@ function askDrink(name,dateOfBirthday){
     let birthDate = new Date(dateOfBirthday); //Дата рождения
     let birthCurrent = new Date(nowDate.getFullYear(), birthDate.getMonth(), birthDate.getDate()); //ДР в текущем году
     let age; 
+    let result;
     
     if (nowDate < birthCurrent) {
       age = nowDate.getFullYear() - birthDate.getFullYear() - 1;
