@@ -68,18 +68,18 @@ function getAverageScore(data) {
 }
 
 function getDecodedValue(secret) {
-  let result;
-  if (secret === 0) {
-    result = 'Родриго';
-  } else if (secret === 1) {
-    result = 'Эмильо';
-  }
-  return result;
+    let result;
+    if (secret === 0) {
+      result = 'Родриго';
+    } else if (secret === 1) {
+      result = 'Эмильо';
+    }
+    return result;
 }
 
 function getPersonData(secretData) {
-  let firstName = getDecodedValue(secretData.aaa);
-  let lastName = getDecodedValue(secretData.bbb);
-  let result = {firstName, lastName};
-  return result;
+    let firstName = getDecodedValue(secretData.aaa);
+    let lastName = getDecodedValue(secretData.bbb);
+    let result = {firstName, lastName};
+    return result;
 }
