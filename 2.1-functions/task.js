@@ -31,10 +31,8 @@ function showSolutionsMessage( a, b, c ) {
       messageThree = `Уравнение не имеет вещественных корней`;
     }
 
-    let res = [messageOne, messageTwo, messageThree];
-
-    return res;
-    //console.log(messageOne);
-    //console.log(messageTwo);
-    //console.log(messageThree);      
+    console.log(messageOne);
+    console.log(messageTwo);
+    console.log(messageThree);      
 }
+
