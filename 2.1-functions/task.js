@@ -30,13 +30,9 @@ function showSolutionsMessage( a, b, c ) {
     } else {
       messageThree = `Уравнение не имеет вещественных корней`;
     }
-
-    let res = [messageOne, messageTwo, messageThree];
-
-    return res;
-    //console.log(messageOne);
-    //console.log(messageTwo);
-    //console.log(messageThree);      
+    console.log(messageOne);
+    console.log(messageTwo);
+    console.log(messageThree);      
 }
 
-showSolutionsMessage( 2, 4, 2 );
+
