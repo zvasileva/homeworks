@@ -38,3 +38,5 @@ function showSolutionsMessage( a, b, c ) {
     //console.log(messageTwo);
     //console.log(messageThree);      
 }
+
+showSolutionsMessage( 2, 4, 2 );
