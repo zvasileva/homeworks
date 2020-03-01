@@ -34,3 +34,35 @@ function showSolutionsMessage( a, b, c ) {
     console.log(messageTwo);
     console.log(messageThree);      
 }
+
+
+function getAverageMark(marks){
+    let sumMarks = 0;
+    let averageMark = 0;
+
+    for (let i = 0; i < marks.length; i++) {
+      let mark = +(marks[i]);
+      sumMarks = sumMarks + mark;
+    }
+    averageMark = sumMarks / marks.length;
+
+    return averageMark;
+}
+
+function getAverageScore(data) {
+    let result = {};
+    let names = Object.getOwnPropertyNames(data);
+    let average = [];
+    let averageMark;
+
+    for (let i = 0; i < names.length; i++) {
+      let newProperty = names[i];
+      let newPropertyValue = getAverageMark(data[newProperty]);
+      result[newProperty] = newPropertyValue;
+      average.push(newPropertyValue);
+    }    
+    averageMark = getAverageMark(average);
+    result.average = averageMark;
+
+    return result;
+}
