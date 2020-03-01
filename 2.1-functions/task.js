@@ -40,6 +40,10 @@ function getAverageMark(marks){
     let sumMarks = 0;
     let averageMark = 0;
 
+    if (marks.length === 0) {
+      return averageMark;  
+    }
+
     for (let i = 0; i < marks.length; i++) {
       let mark = +(marks[i]);
       sumMarks = sumMarks + mark;
