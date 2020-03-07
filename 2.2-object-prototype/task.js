@@ -24,14 +24,14 @@ function getAverageMark(marks) {
 }
 
 function checkBirthday(birthday) {
-    let verdict = 'Нет';
-    let now = Date.now();
-    let birth = +(new Date(birthday)); 
-    let diff = now - birth;
-    let age = diff/(365.25 * 24 * 60 * 60 * 1000);
+    let verdict = false;
+    const now = Date.now();
+    const birth = +(new Date(birthday)); 
+    const diff = now - birth;
+    const age = diff/(365.25 * 24 * 60 * 60 * 1000);
 
     if (age >= 18) {
-        verdict = 'Да';
+        verdict = true;
       } 
     
     return verdict;
