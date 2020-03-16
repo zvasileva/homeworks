@@ -37,6 +37,7 @@ function memorize (fn,limit)  {
             }            
         }*/
       if (memory.find(memoryArg => compareArrays(memoryArg.args, args))) {
+        console.log('Результат берется из памяти');
         return memory.find(memoryArg => compareArrays(memoryArg.args, args)).result;
       }     
       const result = fn(...args);
