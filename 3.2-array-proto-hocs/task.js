@@ -8,7 +8,7 @@ function sleep(milliseconds)
 
 function sum(...args) {
     // Замедление на половину секунды.
-    sleep(500); // Можно использовать другое значение замедления.
+    sleep(100); // Можно использовать другое значение замедления.
     return args.reduce((sum, arg) => {
       return sum += +arg;
     }, 0);
@@ -29,13 +29,16 @@ function memorize (fn,limit)  {
   
     return (...args) => {
       
-      for (let i = 0; i < memory.length; i++) {
+      /*for (let i = 0; i < memory.length; i++) {
             const isTrue = compareArrays( memory[i].args, args );
             if (isTrue) {
                 console.log('Результат берется из памяти');
                 return memory[i].result;
             }            
-        } 
+        }*/
+      if (memory.find(memoryArg => compareArrays(memoryArg.args, args))) {
+        return memory.find(memoryArg => compareArrays(memoryArg.args, args)).result;
+      }     
       const result = fn(...args);
       memory.push({args, result});
       if (memory.length > +(limit)) {
