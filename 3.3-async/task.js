@@ -1,7 +1,7 @@
 class AlarmClock {
     constructor() {
         this.alarmCollection = [];
-        this.timerId; //не поняла из задания для чего это св-во!
+        this.timerId;
     }
 
     clockIsExists (idFind) {
