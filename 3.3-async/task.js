@@ -1,7 +1,7 @@
 class AlarmClock {
     constructor() {
         this.alarmCollection = [];
-        this.timerId;
+        this.timerId = null;
     }
 
     clockIsExists (idFind) {
@@ -56,8 +56,8 @@ class AlarmClock {
 
     getCurrentFormattedTime () {
         const dt = new Date();
-        const hh = dt.getHours();
-        const mi = dt.getMinutes();
+        const hh = String(dt.getHours()).padStart(2, "0");
+        const mi = String(dt.getMinutes()).padStart(2, "0");
         console.log(`${hh}:${mi}`);
         return `${hh}:${mi}`;
     }
@@ -71,14 +71,15 @@ class AlarmClock {
 
     start () {
         if (!this.timerId) {
-            this.timerId = setInterval(() => this.checkClock(), 2000);
+            this.timerId = setInterval(() => this.checkClock(), 10000);
         }
     }
 
     stop () {
         if (this.timerId) {
             clearInterval(this.timerId);
-            delete this.timerId;
+            //delete this.timerId;
+            this.timerId = null;
         }
     }    
 
@@ -92,20 +93,22 @@ class AlarmClock {
 
     clearAlarms () {
         this.stop();
-        this.alarmCollection.forEach(alarm => {
-            removeClock (alarm.id);
-        });        
+        /*this.alarmCollection.forEach(alarm => {
+            this.removeClock (alarm.id);
+        }); */
+        this.alarmCollection = [];
+
     }
 }
 
 
 const timer1 = new AlarmClock();
 
-timer1.addClock("21:00", () => console.log("Скоро спать!"), 1);
-timer1.addClock("21:01", () => {console.log("Пора готовиться ко сну!"); timer1.removeClock(2);}, 2);
-timer1.addClock("21:00", () => console.log("!!!")); //без id
-timer1.addClock("21:02", () => {console.log("Иди спать! Завтра рано на работу!"); timer1.clearAlarms(); timer1.printAlarms();}, 3);
-timer1.addClock("21:00", () => console.log("Скоро спать!"), 1);//существующий id
+timer1.addClock("12:49", () => console.log("Скоро спать!"), 1);
+timer1.addClock("12:50", () => {console.log("Пора готовиться ко сну!"); timer1.removeClock(2);}, 2);
+timer1.addClock("12:55", () => console.log("!!!")); //без id
+timer1.addClock("13:02", () => {console.log("Иди спать! Завтра рано на работу!"); timer1.clearAlarms(); timer1.printAlarms();}, 3);
+timer1.addClock("13:03", () => console.log("Скоро спать!"), 1);//существующий id
 timer1.printAlarms();
 console.log(timer1);
 timer1.start();
